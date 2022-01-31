@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--
+    <record id='library_book_action' model='ir.actions.act_window'>
+        <field name="name">Library Books</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="My Lib" id="lib_menu"/>
+    <menuitem name="Books" id="lib_books" parent="lib_menu" action="library_book_action"/>
+    -->
+
+<act_window
+    id="action_all_customers"
+    name="All customers"
+    res_model="res.partner"
+    view_mode="tree,form"
+    domain="[('customer_rank', '>',0)]"
+    context="{'default_customer_rank': 1}"
+    limit="20" />
+
+<menuitem id="menu_custom_top_level"
+    name="My App menu" />
+
+<menuitem id="menu_all_customers"
+    parent="menu_custom_top_level"
+    action="action_all_customers"
+    sequence="10" />
+
+</odoo>
